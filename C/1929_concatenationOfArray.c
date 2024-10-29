@@ -21,7 +21,7 @@ int *getConcatenation(int *nums, int numsSize, int *returnSize) {
     return ans;
 }
 
-/*
+
 int main()
 {
 	int nums[] = {1,2,1};
@@ -37,4 +37,3 @@ int main()
 	}
 	free(result);
 }
-*/

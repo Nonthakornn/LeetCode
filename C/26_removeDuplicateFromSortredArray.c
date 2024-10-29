@@ -25,7 +25,6 @@ int removeDuplicates(int *nums, int numSize)
 	return index;
 }
 
-/*
 int main()
 {
 	int nums[] = {1,1,2};
@@ -48,4 +47,3 @@ int main()
 		j++;
 	}
 }
-*/
