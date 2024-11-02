@@ -22,6 +22,23 @@ struct ListNode *reverseList(struct ListNode *head)
 	return (head);
 }
 
+//The correct answer is above after this i'm playing with my code
+//Passby ref
+void reverse_back(struct ListNode **head)
+{
+	struct ListNode *next = NULL;
+	struct ListNode *prev = NULL;
+
+	while (*head)
+	{
+		next = (*head)->next;
+		(*head)->next = prev;
+		prev = *head;
+		*head = next;
+	}
+	*head = prev;
+}
+
 int main()
 {
 	struct ListNode *head = malloc(sizeof(struct ListNode));
@@ -45,12 +62,39 @@ int main()
 	}
 
 	printf("\n");
-	struct ListNode *result = reverseList(head);
-	while (result)
+
+	head = reverseList(head);
+	ptr = head;
+	while (ptr)
 	{
-		printf("%d ", result->val);
-		result = result->next;
+		printf("%d ", ptr->val);
+		ptr = ptr->next;
 	}
+
+	printf("\n");
+	reverse_back(&head);
+	ptr = head;
+	while (ptr)
+	{
+		printf("%d ", ptr->val);
+		ptr = ptr->next;
+	}
+	printf("\n");
+
+	// struct ListNode *result = reverseList(head);
+	// while (result)
+	// {
+	// 	printf("%d ", result->val);
+	// 	result = result->next;
+	// }
+	// printf("\n");
+
+	// reverse_back(&result);
+	// while (result)
+	// {
+	// 	printf("%d", result->val);
+	// 	result = result->next;
+	// }
 	free(head);
 	free(node1);
 	free(node2);
